@@ -1,0 +1,18 @@
+# Dataset files
+data/
+*.csv
+
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+
+# Credentials
+.env
