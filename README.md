@@ -98,9 +98,52 @@ The study uses a single public competition dataset, which may limit generalizabi
 - **Week 12:** Evaluate additional candidate models and complete Milestone 2
 - **Week 13:** Final research paper and five-minute presentation
 
+
+## Milestone 2: Research Execution and Preliminary Findings
+
+### Data Preparation
+- Dataset: 456,548 observations covering weeks 1–145.
+- No missing values or duplicate week-center-meal keys were identified.
+- Development period: weeks 1–116; final holdout: weeks 117–145.
+- Five expanding-window validation folds with 12-week validation blocks.
+- Engineered price and promotion features were investigated.
+
+### Model Comparison
+
+| Model | Average Validation MAE | Average Validation RMSE |
+|---|---:|---:|
+| Historical Mean Baseline | 120.76 | 270.10 |
+| Gradient Boosting (engineered) | 134.88 | 253.13 |
+| Ridge Regression (engineered) | 144.58 | 266.51 |
+| Ridge Regression (raw) | 144.67 | 268.74 |
+| Linear Regression (raw) | 144.72 | 268.72 |
+
+### Preliminary Findings
+- The historical mean baseline achieved the lowest average MAE across all five validation folds.
+- Gradient Boosting achieved the lowest average RMSE, indicating a potential advantage when large forecasting errors matter most.
+- Performance varied by demand level; the baseline was especially effective for low-demand observations.
+- Fold-level comparisons, residual plots, and sampled one-week-ahead diagnostics are included in the Milestone 2 notebook.
+
+### Reproducing Milestone 2
+1. Download the Genpact Food Demand Forecasting `train.csv` dataset from Kaggle.
+2. Install dependencies with `pip install -r requirements.txt`.
+3. Open `02_model_comparison_and_findings.ipynb` in Jupyter or Google Colab.
+4. Place `train.csv` in `data/train.csv` or upload it to `/content/train.csv` in Colab.
+5. Run all cells in order and review the generated tables and figures.
+
+### Remaining Research
+- Verify availability of price and promotion features at the forecast decision time.
+- Consolidate results and limitations for the final paper.
+- Recommend a model based on MAE, RMSE, temporal consistency, and operational interpretability.
+
+The raw dataset is intentionally excluded from this repository.
+  
+
 ## Individual Contribution
 
 This is an individual research project. The author is responsible for research design, literature review, data analysis, Python implementation, model evaluation, documentation, and final presentation.
+
+
 
 ## Author
 
